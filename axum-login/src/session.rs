@@ -139,7 +139,7 @@ impl<Backend: AuthnBackend> AuthSession<Backend> {
         Ok(user)
     }
 
-    async fn update_session(&mut self) -> Result<(), session::Error> {
+    pub async fn update_session(&mut self) -> Result<(), session::Error> {
         self.session.insert(self.data_key, self.data.clone()).await
     }
 
